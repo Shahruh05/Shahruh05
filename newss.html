@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сеть кинотеатров - Kinopark</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #0066cc;
+            font-size: 1.8em;
+        }
+
+        .alternative-block {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .movie-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .movie-item img {
+            width: 100%;
+            border-radius: 10px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .movie-item img:hover {
+            opacity: 1;
+        }
+
+        .movie-item p {
+            margin: 10px 0;
+            font-size: 1em;
+        }
+
+        .movie-item b {
+            font-size: 1.2em;
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1001;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-toggle.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .side-menu.active {
+            transform: translateX(0);
+        }
+
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-menu li {
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+
+        .side-menu a {
+            text-decoration: none;
+            color: #ffcc00;
+            transition: color 0.3s ease;
+        }
+
+        .side-menu a:hover {
+            color: #ff6600;
+        }
+
+        /* Стиль для выпадающего меню */
+        .dropdown {
+            position: relative;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #333;
+            width: 200px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .dropdown:hover .submenu {
+            display: block;
+        }
+
+        .submenu a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .submenu a:hover {
+            background-color: #444;
+        }
+
+        @media (max-width: 1024px) {
+            .movie-item {
+                width: 45%; 
+            }
+
+            .side-menu {
+                width: 80%; 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .movie-item {
+                width: 90%; 
+            }
+
+            .menu-toggle {
+                top: 15px;
+                left: 10px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em; 
+            }
+
+            .menu-toggle {
+                font-size: 0.9em; 
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-toggle">Меню</button>
+
+    <div class="side-menu">
+        <ul>
+            <li><a href="#">Фильмы</a></li>
+            <li><a href="kinoteatr.html">Кинотеатры</a></li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">О нас</a></li>
+
+            <!-- Выпадающее меню -->
+            <li class="dropdown">
+                <a href="#">Язык</a>
+                <div class="submenu">
+                    <a href="#">Рус</a>
+                    <a href="#">Қазақ</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <header>
+        <h1>Сеть кинотеатров - Kinopark</h1>
+    </header>
+
+    <section>
+        <h2>Сегодня в кино | Скоро на экранах</h2>
+    </section>
+
+    <section class="alternative-block">
+        <div class="movie-item">
+            <img src="https://i.ibb.co/K2kjnP5/image-23.webp" alt="Фильм Джокер">
+            <p><b>Джокер: Безумие на двоих</b></p>
+            <p>Триллер, драма, криминал, музыка</p>
+            <p><b>18+</b></p>
+        </div>
+        
+        <div class="movie-item">
+            <img src="https://i.ibb.co/51hkVs6/image-17.webp" alt="Фильм Мой папа тигр">
+            <p><b>Менің папам - тигр</b></p>
+            <p>Трагикомедия</p>
+            <p><b>14+</b></p>
+        </div>
+        
+        <div class="movie-item">
+            <img src="https://i.ibb.co/4tLB8vb/Whats-App-Image-2024-08-26-at-18-09-17-1.webp" alt="Фильм Айқай-шу">
+            <p><b>Айқай-шу</b></p>
+            <p>Комедия</p>
+            <p><b>16+</b></p>
+        </div>
+        
+        <div class="movie-item">
+            <img src="https://i.ibb.co/YfRqV0c/Whats-App-Image-2024-09-20-at-17-32-55.jpg" alt="Фильм От">
+            <p><b>От</b></p>
+            <p>Драма</p>
+            <p><b>18+</b></p>
+        </div>
+
+        <div class="movie-item">
+            <img src="https://i.ibb.co/yX3qV4k/Whats-App-Image-2024-09-23-at-16-09-26.jpg" alt="Фильм Ифрит">
+            <p><b>Ифрит</b></p>
+            <p>Ужасы</p>
+            <p><b>16+</b></p>
+        </div>
+        
+        <div class="movie-item">
+            <img src="https://i.ibb.co/3hdTXs9/image-2024-08-02-T155345-601.webp" alt="Фильм Лунтик">
+            <p><b>Лунтик возвращение</b></p>
+            <p>Мультфильм</p>
+            <p><b>6+</b></p>
+        </div>
+    </section>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sideMenu = document.querySelector('.side-menu');
+
+        menuToggle.addEventListener('click', () => {
+            sideMenu.classList.toggle('active');
+            if (sideMenu.classList.contains('active')) {
+                menuToggle.classList.add('hidden');
+            }
+        });
+
+        sideMenu.addEventListener('click', (event) => {
+            if (event.target.tagName === 'A') {
+                sideMenu.classList.remove('active');
+                menuToggle.classList.remove('hidden');
+            }
+        });
+
+        sideMenu.addEventListener('mouseleave', () => {
+            if (sideMenu.classList.contains('active')) {
+                sideMenu.classList.remove('active');
+                menuToggle.classList.remove('hidden');
+            }
+        });
+    </script>
+</section>
+
+<footer>
+    <p>&copy; 2024 Kinopark Theatres</p>
+</footer>
+<script>
+    
+
+
+</script>
+
+</body>
+</html>
